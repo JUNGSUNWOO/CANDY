@@ -79,7 +79,7 @@ def predict_pos_neg(review):
     for i in range(0, len(score)):
         if float(score[i]) >= 0.9 : score[i] = float(score[i]) - 0.30
         else : score[i] = float(score[i]) + 0.10
-        score[i] = round(score[i],7) * 100
+        score[i] = round(score[i],1) * 50
 
     return score
 
@@ -90,7 +90,7 @@ from connect_server import con_server
 con = con_server()
 result = con.get_data()
 print(result)
-res = predict_pos_neg(result)
+res = predict_pos_neg(result[0])
 con.send_data(res)
 
 

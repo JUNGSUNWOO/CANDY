@@ -14,7 +14,6 @@ class con_server:
 
         try:
             result = response.text
-            print(result)
             return result
         except Exception as e:
             print(e)
@@ -25,8 +24,8 @@ class con_server:
         #     'result' : data
         # }
         out_headers = {}
-        data = data.encode('utf-8')
-        requests.post(url = self.url, data = data)
+        print(data)
+        requests.post(url = self.url, data = str(data))
 
 
 # if __name__ == "__main__" :
